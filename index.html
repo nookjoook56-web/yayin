@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Canli Yayin</title>
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+    <style>
+        body { margin: 0; background: #000; display: flex; justify-content: center; align-items: center; height: 100vh; }
+        video { width: 100%; max-width: 800px; }
+    </style>
+</head>
+<body>
+    <video id="video" controls playsinline></video>
+    <script>
+        async function baslat() {
+            const video = document.getElementById('video');
+            // Cloudflare Worker adresini buraya bağlayacağız
+            const apiURL = 'https://empty-haze-3c63.coinmybook.workers.dev/';
+
+            try {
+                const response = await fetch(apiURL);
+                const m3u8Link = await response.text();
+
+                if (Hls.isSupported()) {
+                    var hls = new Hls();
+                    hls.loadSource(m3u8Link);
+                    hls.attachMedia(video);
+                } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+                    video.src = m3u8Link;
+                }
+            } catch (e) {
+                console.error("Yayin yuklenemedi.");
+            }
+        }
+        baslat();
+    </script>
+</body>
+</html>
