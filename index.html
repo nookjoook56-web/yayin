@@ -2,26 +2,22 @@
 <html>
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Canlı Yayın</title>
     <link href="https://vjs.zencdn.net/7.20.3/video-js.css" rel="stylesheet" />
-    <style>body { margin: 0; background: #000; }</style>
+    <style>
+        body, html { margin: 0; padding: 0; width: 100%; height: 100%; background: #000; overflow: hidden; }
+        .video-js { width: 100% !important; height: 100% !important; }
+    </style>
 </head>
 <body>
-    <video id="player" class="video-js vjs-default-skin vjs-big-play-centered" controls preload="auto" width="100%" height="100%"></video>
+    <video id="player" class="video-js vjs-big-play-centered" controls preload="auto">
+        <source src="https://m-hls.dogannet.tv/itv/yayininat.m3u8" type="application/x-mpegURL">
+    </video>
     <script src="https://vjs.zencdn.net/7.20.3/video.min.js"></script>
     <script>
-        // Cloudflare yerine doğrudan ana siteden linki bulmaya çalışır
-        fetch('https://inattv1212.xyz/channel.html?id=yayininat')
-        .then(response => response.text())
-        .then(data => {
-            const regex = /https?:\/\/[\w\.-]+\/yayininat\.m3u8/g;
-            const match = data.match(regex);
-            const videoUrl = match ? match[0] : "HATA: Link bulunamadı";
-            
-            var player = videojs('player');
-            player.src({ src: videoUrl, type: 'application/x-mpegURL' });
-        })
-        .catch(err => console.error("Link çekme hatası:", err));
+        var player = videojs('player');
+        player.play();
     </script>
 </body>
 </html>
