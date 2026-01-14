@@ -3,52 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Canlı Yayın Giriş</title>
+    <title>Canlı Yayın Paneli</title>
     <style>
         body {
             margin: 0;
             padding: 0;
-            background: #000;
+            background-color: #0f0f0f;
+            color: white;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            font-family: sans-serif;
+            overflow: hidden;
         }
-        .container {
+        .card {
+            background: #1a1a1a;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
             text-align: center;
+            border: 1px solid #333;
+            max-width: 90%;
         }
-        .btn-yayin {
-            background-color: #ff0000;
+        h2 { margin-bottom: 20px; font-size: 20px; color: #fff; }
+        .btn-play {
+            background: linear-gradient(45deg, #ff0000, #cc0000);
             color: white;
-            padding: 20px 40px;
-            font-size: 24px;
-            font-weight: bold;
-            border: none;
-            border-radius: 50px;
-            cursor: pointer;
             text-decoration: none;
+            padding: 15px 35px;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 50px;
             display: inline-block;
-            box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
-            transition: 0.3s;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 15px rgba(255, 0, 0, 0.3);
         }
-        .btn-yayin:hover {
-            transform: scale(1.1);
-            background-color: #cc0000;
+        .btn-play:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(255, 0, 0, 0.5);
         }
-        p {
-            color: #ccc;
-            margin-top: 20px;
-            font-size: 14px;
+        .info {
+            margin-top: 15px;
+            font-size: 12px;
+            color: #888;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <a href="https://inattv1212.xyz/channel.html?id=yayininat" target="_blank" class="btn-yayin">
-            YAYINI BAŞLAT
+
+    <div class="card">
+        <h2>Canlı Yayın Hazır</h2>
+        <a href="https://inattv1212.xyz/channel.html?id=yayininat" target="_blank" class="btn-play">
+            ▶ YAYINI ŞİMDİ İZLE
         </a>
-        <p>Yayın yeni sekmede reklamsız açılacaktır.</p>
+        <p class="info">Yayın yeni sekmede kesintisiz açılacaktır.</p>
     </div>
+
 </body>
 </html>
